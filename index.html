@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Alphabet Typing Challenge</title>
+
+        <link rel="stylesheet" href="typingChallenge.css">
+        <script src="typingChallenge.js" defer></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="title-box">
+                    <div class="keyboard-icon">
+                        <span>⌨</span>
+                    </div>
+
+                    <div>
+                        <h1>Alphabet Typing Challenge</h1>
+                        <p>Type the alphabets in the correct order using your keyboard.</p>                
+                    </div>
+                </div>
+            </div>
+
+            <div class="mode-section">
+                <h3>Select Mode</h3>
+                <div class="mode-buttons">
+                    <button id="ascendingBtn" class="mode-btn active"><span>A → Z</span></button>
+                    <button id="descendingBtn" class="mode-btn"><span>Z → A</span></button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-icon">
+                        <span>◷</span>
+                    </div>
+
+                    <div>
+                        <p>Time Left</p>
+                        <h2 id="timeLeft">30</h2>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-icon score-icon">
+                        <span>★</span>
+                    </div>
+                    <div>
+                        <p>Score</p>
+                        <h2 id="score">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-icon correct-icon">
+                        <span>✓</span>
+                    </div>
+                    <div>
+                        <p>Correct</p>
+                        <h2 id="correct">0</h2>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-icon wrong-icon">
+                        <span>✕</span>
+                    </div>
+                    <div>
+                        <p>Wrong</p>
+                        <h2 id="wrong">0</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-section">
+                <h3>Type the next letter</h3>
+                <div class="current-letter">
+                    <span id="currentLetter">A</span>
+                </div>
+
+                <div class="alphabet-container">
+                    <span class="alphabet">A</span>
+                    <span class="alphabet">B</span>
+                    <span class="alphabet">C</span>
+                    <span class="alphabet">D</span>
+                    <span class="alphabet">E</span>
+                    <span class="alphabet">F</span>
+                    <span class="alphabet">G</span>
+                    <span class="alphabet">H</span>
+                    <span class="alphabet">I</span>
+                    <span class="alphabet">J</span>
+                    <span class="alphabet">K</span>
+                    <span class="alphabet">L</span>
+                    <span class="alphabet">M</span>
+                    <span class="alphabet">N</span>
+                    <span class="alphabet">O</span>
+                    <span class="alphabet">P</span>
+                    <span class="alphabet">Q</span>
+                    <span class="alphabet">R</span>
+                    <span class="alphabet">S</span>
+                    <span class="alphabet">T</span>
+                    <span class="alphabet">U</span>
+                    <span class="alphabet">V</span>
+                    <span class="alphabet">W</span>
+                    <span class="alphabet">X</span>
+                    <span class="alphabet">Y</span>
+                    <span class="alphabet">Z</span>
+                </div>
+            </div>
+
+            <button id="startBtn" class="start-btn"><span>▶</span><span>Start Game</span></button>
+        </div>
+
+        <div class="result-section" id="resultSection">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Correct: <span id="finalCorrect">0</span></p>
+            <p>Wrong: <span id="finalWrong">0</span></p>
+        </div>
+    </body>
+</html>
