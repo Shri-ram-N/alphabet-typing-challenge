@@ -104,7 +104,7 @@ body{
     background-color: #edf7fc;
     border-radius: 15px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
 }
 
@@ -173,6 +173,10 @@ body{
 
 .stat:nth-child(4) h2{
     color: #e94d4d;
+}
+
+.stat:nth-child(5) h2{
+    color: #f0ad18;
 }
 
 .typing-section{
