@@ -17,15 +17,19 @@ Try the game directly in your browser!
 * 🔤 **Ascending Mode** — Type A → Z
 * 🔄 **Descending Mode** — Type Z → A
 * ⏱️ **30-second countdown timer**
-* ✅ Correct answer tracking
-* ❌ Wrong answer tracking
-* 🏆 Score system
-* 🎯 Current letter highlighting
-* 🟢 Correct-key visual feedback
-* 🔴 Wrong-key visual feedback
-* ⚠️ Timer warning when 5 seconds remain
-* 🎉 Completion screen
-* 🔒 Game mode selection is locked while the game is running
+* ✅ **Correct answer tracking**
+* ❌ **Wrong answer tracking**
+* 🏆 **Score system**
+* 🥇 **Best Score tracking**
+* 💾 **Best Score persistence using Local Storage**
+* 🎯 **Current letter highlighting**
+* 🟢 **Correct-key visual feedback**
+* 🔴 **Wrong-key visual feedback**
+* ⚠️ **Timer warning when 5 seconds remain**
+* 🎉 **Completion message**
+* ⏰ **Time's Up message**
+* 🔒 **Game mode selection is locked while the game is running**
+* 🛡️ **Error handling using try...catch**
 
 ---
 
@@ -40,8 +44,8 @@ Try the game directly in your browser!
 4. Type the highlighted letter on your keyboard.
 5. Continue typing the letters in the correct order.
 6. Complete all 26 letters before the timer reaches zero.
-7. View your final score and statistics.
-8. Click **Play Again** to start a new round.
+7. View your score, correct answers, wrong answers, and best score.
+8. Try again to beat your previous best score.
 
 ---
 
@@ -55,13 +59,28 @@ Try the game directly in your browser!
 
 The score cannot go below **0**.
 
+Your **Best Score** is updated whenever you achieve a score higher than your previous best.
+
+---
+
+## 🏆 Best Score
+
+The game uses the browser's **Local Storage** to save the player's best score.
+
+This means the best score:
+
+* 💾 Remains saved after refreshing the page
+* 🔄 Is loaded automatically when the game starts
+* 📈 Updates only when a new higher score is achieved
+* 🏆 Allows the player to try to beat their previous record
+
 ---
 
 ## ⏱️ Timer
 
 Each game starts with **30 seconds**.
 
-When the remaining time reaches **5 seconds or less**, the timer changes appearance and begins pulsing to provide a visual warning.
+When the remaining time reaches **5 seconds or less**, the timer changes appearance and provides a visual warning.
 
 The game automatically ends when the timer reaches **0**.
 
@@ -69,15 +88,30 @@ The game automatically ends when the timer reaches **0**.
 
 ## 🏁 Game Completion
 
-The game can end in two ways:
+The game can end in two ways.
 
 ### 🎉 Alphabet Completed
 
-If all 26 letters are typed correctly before the timer reaches zero, the game displays a completion message and shows the final statistics.
+If all 26 letters are typed correctly before the timer reaches zero, the game displays a completion message and updates the final statistics.
+
+If the score is higher than the previous best score, the new score is saved as the **Best Score**.
 
 ### ⏰ Time's Up
 
-If the timer reaches zero before all 26 letters are completed, the game displays the final score, correct answers, and wrong answers.
+If the timer reaches zero before all 26 letters are completed, the game displays the **Time's UP!** message and checks whether the score is a new best score.
+
+---
+
+## 🛡️ Error Handling
+
+The project uses JavaScript's **`try...catch`** statement to handle unexpected errors during important game operations.
+
+Error handling is currently used for:
+
+* ▶️ Starting the game
+* ⌨️ Processing keyboard input
+
+Errors are displayed in the browser console to make debugging easier during development.
 
 ---
 
@@ -96,8 +130,9 @@ Used for:
 * Colors
 * Animations
 * Hover effects
-* Progress bar
 * Visual feedback
+* Timer warning effects
+* Game state styling
 
 ### JavaScript
 
@@ -107,10 +142,13 @@ Used for:
 * Keyboard event handling
 * Timer functionality
 * Score calculation
+* Best score management
+* Local Storage
 * Progress tracking
 * DOM manipulation
 * Game state management
 * Mode selection
+* Error handling
 
 ---
 
@@ -131,7 +169,9 @@ This project was created to practice fundamental JavaScript concepts, including:
 * `classList`
 * `textContent`
 * Array indexing
-* Regular expressions
+* `localStorage`
+* `try...catch`
+* Error handling
 * Conditional game states
 
 ---
@@ -181,6 +221,12 @@ Next Letter   │
     Yes      No
      ↓        ↓
  Completed   Continue
+     │
+     ↓
+Check Best Score
+     │
+     ↓
+Save to Local Storage
 ```
 
 ---
@@ -190,15 +236,15 @@ Next Letter   │
 Possible future additions include:
 
 * 🎚️ Difficulty levels
-* 🏆 High-score system
 * 🔊 Sound effects
 * 🎯 Multiple rounds
-* 📈 Accuracy percentage
-* ⭐ Personal best tracking
-* 🥇 Leaderboard
+* 📊 Accuracy percentage
+* 🥇 Online leaderboard
 * 📱 Improved mobile support
 * ⌨️ On-screen keyboard
 * 🌙 Dark mode
+* 📈 Detailed game statistics
+* 🎨 Additional game themes
 
 ---
 
@@ -206,7 +252,7 @@ Possible future additions include:
 
 **Shri Ram**
 
-Built as a JavaScript learning project to practice interactive web development, DOM manipulation, event handling, timers, and game logic.
+Built as a JavaScript learning project to practice interactive web development, DOM manipulation, event handling, timers, browser storage, error handling, and game logic.
 
 ---
 
