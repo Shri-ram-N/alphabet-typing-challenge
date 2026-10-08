@@ -4,6 +4,8 @@ A simple and interactive typing game built with **HTML, CSS, and JavaScript**.
 
 The goal is to type the alphabet in the correct order before the **30-second timer** runs out.
 
+---
+
 ## 🚀 Live Demo
 
 **[▶️ Play Alphabet Typing Challenge](https://shri-ram-n.github.io/alphabet-typing-challenge/)**
@@ -83,6 +85,27 @@ Each game starts with **30 seconds**.
 When the remaining time reaches **5 seconds or less**, the timer changes appearance and provides a visual warning.
 
 The game automatically ends when the timer reaches **0**.
+
+---
+
+## 📊 Result Box
+
+After the game ends, a small **result box** is displayed with the player's final statistics.
+
+The result box shows:
+
+* 🏆 **Final Score**
+* ✅ **Correct Answers**
+* ❌ **Wrong Answers**
+* 🔤 **Letters Completed**
+* ⏱️ **Game Result**
+
+The game result can be:
+
+* 🎉 **Alphabet Completed**
+* ⏰ **Time's Up**
+
+The result box provides a quick summary of the player's performance after each round.
 
 ---
 
@@ -179,12 +202,18 @@ This project was created to practice fundamental JavaScript concepts, including:
 ## 📁 Project Structure
 
 ```text
-AlphabetTypingGame/
-│
-├── index.html
-├── typingChallenge.css
-├── typingChallenge.js
-└── README.md
+⏰ Time's Up!
+
+┌─────────────────────────┐
+│       FINAL RESULT      │
+│                         │
+│  🏆 Score:       30     │
+│  ✅ Correct:     18     │
+│  ❌ Wrong:        3     │
+│  🔤 Completed:   18     │
+│                         │
+│  ⏰ Time's Up!          │
+└─────────────────────────┘
 ```
 
 ---
