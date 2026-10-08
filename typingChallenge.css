@@ -6,7 +6,7 @@
 }
 
 body{
-    min-height: 100vh;
+    height: 100vh;
     background-color: #eef6fc;
     display: flex;
     justify-content: center;
@@ -16,11 +16,12 @@ body{
 
 .container{
     width: 900px;
-    min-height: 680px;
+    height: 680px;
     background-color: white;
     border-radius: 20px;
     padding: 40px;
     box-shadow: 0 8px 25px rgba(40, 90, 130, 0.12);
+    margin-bottom: 50px;
 }
 
 .header{
@@ -339,4 +340,67 @@ body{
     100%{
         transform: scale(1);
     }
+}
+
+button:disabled{
+    cursor:not-allowed;
+}
+
+.rest-btn{
+    background-color: #ce425a !important;
+}
+
+.result-area{
+    background-color: #eaf7fc;
+    border-radius: 15px;
+    padding: 14px 20px 0px;
+    width: 50%;
+    height: 32%;
+    margin: 0 auto;
+    margin-top: 16px;
+    text-align: center;
+    display: none;
+}
+
+.flex-ones{
+    display: flex;
+    margin: 16px;
+    justify-content: space-evenly;
+}
+
+.correct-text{
+    color: #24b568;
+    font-size: 1.3em;
+}
+
+.wrong-text{
+    color:#ee5555;
+    font-size: 1.3em;
+}
+
+.score-text{
+    color:#f0ad18;
+    font-size: 1.3em;
+}
+
+.msg-showing{
+    font-size: 2em;
+    margin-bottom: 14px;
+    color: #8133a5;
+}
+
+.result-correct{
+    font-size: 1.3em;
+}
+
+.result-wrong{
+    font-size: 1.3em;
+}
+
+.result-score{
+    font-size: 1.3em;
+}
+
+.time-up{
+    color:#ee5555 !important;
 }

@@ -19,6 +19,12 @@ let timeRemain = 30;
 let gameRunning = false;
 let timer = null;
 let gameMode = "ascending";
+let typingArea = document.querySelector(".typing-section");
+let resultArea = document.querySelector(".result-area");
+let resultCorrect = document.querySelector(".result-correct");
+let resultScore = document.querySelector(".result-score");
+let resultWrong = document.querySelector(".result-wrong");
+let msgShowing = document.querySelector(".msg-showing");
 
 ascendingBtn.addEventListener("click",function(){
     gameMode = "ascending";
@@ -34,12 +40,19 @@ descendingBtn.addEventListener("click",function(){
 
 startBtn.addEventListener("click",function(){
     try{
+        msgShowing.classList.remove("time-up");
+        typingArea.style.display = "block";
+        resultArea.style.display = "none";
+        msgShowing.textContent = "Congratulations ! 🏅";
+        startBtn.textContent = "⟳ Restart";
+        startBtn.classList.add("rest-btn");
         ascendingBtn.disabled = true;
         descendingBtn.disabled = true;
         currentLetter.classList.remove("completed-msg");
         currentLetter.classList.remove("time-up");
         alphaEle.forEach(ele => ele.classList.remove("completed"));
         alphaEle.forEach(ele => ele.classList.remove("current"));
+        alphaEle.forEach(ele => ele.classList.remove("wrong-key"))
         clearInterval(timer);
         if (gameMode === "ascending"){
             currentIdx = 0;
@@ -65,13 +78,22 @@ startBtn.addEventListener("click",function(){
                 timeLeft.classList.add("timer-warning");
             }
             if (timeRemain === 0){
+                typingArea.style.display = "none";
+                resultArea.style.display = "block";
                 clearInterval(timer);
+                resultScore.textContent = playerScore;
+                resultCorrect.textContent = correctAns;
+                resultWrong.textContent = wrongAns;
+                msgShowing.textContent = "Time's up !";
+                msgShowing.classList.add("time-up");
                 gameRunning = false;
                 ascendingBtn.disabled = false;
                 descendingBtn.disabled = false;
                 currentLetter.classList.add("time-up");
                 currentLetter.textContent = "Time's UP!";
                 timeLeft.classList.remove("timer-warning");
+                startBtn.textContent = "▶ Start Game";
+                startBtn.classList.remove("rest-btn");
                 if (playerScore > bestScore) {
                     bestScore = playerScore;
                     localStorage.setItem("bestScore", bestScore);
@@ -109,18 +131,25 @@ document.addEventListener("keydown",function(ele){
                 score.textContent = playerScore;
                 correctAns++;
                 correct.textContent = correctAns;
-                if ( (currentIdx === 26 && gameMode === "ascending" ) || ( currentIdx === -1 && gameMode === "descending" )){
+                if ( (currentIdx === 26 && gameMode === "ascending" ) || ( currentIdx === -1 && gameMode === "descending" ) ){
                     gameRunning = false;
                     clearInterval(timer);
                     currentLetter.classList.add("completed-msg");
                     currentLetter.textContent = "Completed!";
+                    startBtn.textContent = "▶ Start Game";
+                    startBtn.classList.remove("rest-btn");
                     ascendingBtn.disabled = false;
                     descendingBtn.disabled = false;
+                    typingArea.style.display = "none";
+                    resultArea.style.display = "block";
                     if (playerScore > bestScore) {
                         bestScore = playerScore;
                         localStorage.setItem("bestScore", bestScore);
                         bestScoreEle.textContent = bestScore;
                     }
+                    resultScore.textContent = playerScore;
+                    resultCorrect.textContent = correctAns;
+                    resultWrong.textContent = wrongAns;
                 }
                 else{
                     alphaEle[currentIdx].classList.add("current");
@@ -134,9 +163,31 @@ document.addEventListener("keydown",function(ele){
                 score.textContent = playerScore;
                 let wrongAlpha = alphaEle[currentIdx];
                 wrongAlpha.classList.add("wrong-key");
-                setTimeout(function(){
-                    wrongAlpha.classList.remove("wrong-key");
-                }, 200);
+                if (gameMode == "ascending"){
+                    currentIdx++;
+                }
+                else{
+                    currentIdx--;
+                }
+                if ( (currentIdx === 26 && gameMode === "ascending" ) || ( currentIdx === -1 && gameMode === "descending" ) ){
+                    gameRunning = false;
+                    clearInterval(timer);
+                    currentLetter.classList.add("completed-msg");
+                    currentLetter.textContent = "Completed!";
+                    ascendingBtn.disabled = false;
+                    descendingBtn.disabled = false;
+                    startBtn.textContent = "▶ Start Game";
+                    startBtn.classList.remove("rest-btn");
+                    typingArea.style.display = "none";
+                    resultArea.style.display = "block";
+                    resultScore.textContent = playerScore;
+                    resultCorrect.textContent = correctAns;
+                    resultWrong.textContent = wrongAns;
+                }
+                else{
+                    alphaEle[currentIdx].classList.add("current");
+                    currentLetter.textContent = alphaArr[currentIdx];
+                }
             }
         }
     }
